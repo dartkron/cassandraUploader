@@ -41,6 +41,9 @@ you should see verbosity output about upload process.
 
 ## My results
 
-In 4 nodes cluster(2x2DC) on comodity VPS(1 VCPU,2 GB RAM, 20GB HDD) i've reached ~20MB/s writes(with EACH_QUORUM). But if you will start application on multiple nodes in same time,summary throughput will be significally high, like an example:
-2 nodes: 35MB/s
-3 nodes: 45MB/s
+In 4 nodes cluster(2x2DC) on comodity VPS(1 VCPU,2 GB RAM, 20GB HDD) i've reached ~20MB/s writes(with EACH_QUORUM).
+
+But if you will start application on multiple nodes in same time,summary throughput will be significally high, like an example:
+
+        2 nodes: 35MB/s
+        3 nodes: 45MB/s
