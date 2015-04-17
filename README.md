@@ -25,6 +25,7 @@ Now you are ready to load files into your Cassadra cluster.
 
 Application accept following command-line arguments:
 
+    -concurent=5: amount of concurent writes
     -path="./files/": path to directory with blob files to upload
     -servers_list="::1": list of cassandra servers to connect, i.e.: 2001:db8:f:ffff:0:0:0:1,2001:db8:f:ffff:0:0:0:2
     -keyspace="simple_space": keyspace where target table located
@@ -37,13 +38,10 @@ but if you're doing everything by this README, just do following steps:
 3. create simple_space tablespace and stat table 
 4. run application without any arguments
  
-you should see verbosity output about upload process. 
+you should see verbosity output about upload process. By default write will be started with concurency 5.
 
 ## My results
 
-In 4 nodes cluster(2x2DC) on comodity VPS(1 VCPU,2 GB RAM, 20GB HDD) i've reached ~20MB/s writes(with EACH_QUORUM).
+In 2 nodes cluster(one VPS per DC) on comodity VPS(1 VCPU,2 GB RAM, 20GB HDD) i've reached ~46MB/s writes(with QUORUM).
 
-But if you will start application on multiple nodes in same time,summary throughput will be significally high, like an example:
-
-        2 nodes: 35MB/s
-        3 nodes: 45MB/s
+Based on Cassandra design, if you have much more nodes, you should try start this test on half of nodes in same time, summary throughput will be significally high.
